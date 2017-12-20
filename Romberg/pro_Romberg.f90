@@ -11,15 +11,25 @@
           real                ::star_time,end_time
           real,external       ::f_any     ! 要积分的函数
           
-          print*,'请输入上下界 a,b 和误差上限 e'
-          read*,a,b,e
+          print*,'请输入上下界 a,b'
+          read*,a,b
+          print*,'指定外推次数 m ? (select 1) or 指定误差上限 e ?(select 2)'
+          read*,s                       ! s 临时用作判断
+          if(s<2)then
+              print*,'请输入外推次数 m'
+              read*,m
+              call sub_romberg_m(f_any,a,b,m,s)
+          else
+              print*,'请输入误差上限 e'
+              read*,e
+              call sub_romberg_e(f_any,a,b,e,s)
+          end if
 
-          call sub_romberg(f_any,a,b,m,e,s)
-          
-          print*,'得数',s,'外推次数',m
+
           print*,'用时',end_time-star_time,'秒'
       
 
       end program
       include "f_any.f90"
-      include "sub_romberg.f90"
+      include "sub_romberg_m.f90"
+      include "sub_romberg_e.f90"

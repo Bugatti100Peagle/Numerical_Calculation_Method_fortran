@@ -1,10 +1,10 @@
 !*************************************************************************
-	!> File Name: sub_romberg.f90
+	!> File Name: sub_romberg_m.f90
 	!> Author: 青羽100P
 	!> Mail: bugatti100peagle@gmail.com
 	!> Created Time: 2017年12月20日 星期三 16时50分43秒
 !********10********20*********30********40********50********60********70**
-      subroutine sub_romberg(f_any,a,b,m,e,s)
+      subroutine sub_romberg_m(f_any,a,b,m,s)
           implicit none
           integer             ::k,m,i,n   ! n 数组维度          
           real                ::a,b,e,s,x,sum_newdot
