@@ -5,3 +5,5 @@ Some codes for Computational Method, welcome to discuss.
 ## Interpolation 插值
 ## Linear algebra 线性代数
 ## Numerical integration 数值积分
+- [龙贝格求积](https://github.com/Bugatti100Peagle/Numerical_Calculation_Method_fortran/blob/master/Romberg/Introduce_of_Romberg.md)
+
