@@ -13,7 +13,8 @@
 ## 编程方法
 - 与牛顿下山一样，龙贝格的表有可以任意插入新节点，只需怎加特定点即可，无需重新扫描。虽然，龙贝格积分一般不外推至5（开数组仅需要开设8～10维度就够用了），但是，为了体现它的“独木成林”（只从梯形积分复合以求高次积分）的强大功能，以及为了后期做外推>5的极限测试。此处使用动态数组。
 - 具体问题可查看git 日志
-
+运算课本习题的结果如下
+![enter image](https://github.com/Bugatti100Peagle/Numerical_Calculation_Method_fortran/blob/master/pictures/romberg04.png?raw=true)
 ## Bugs and problem
 - 外推超过5次后，精度下降
 - 指定的误差值超过 0.001 后运算速度明显下降
