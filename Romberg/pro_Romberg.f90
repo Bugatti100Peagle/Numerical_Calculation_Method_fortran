@@ -22,7 +22,7 @@
           else
               print*,'请输入误差上限 e'
               read*,e
-          !    call sub_romberg_e(f_any,a,b,e,s)
+              call sub_romberg_e(f_any,a,b,e,s)
           end if
 
 
