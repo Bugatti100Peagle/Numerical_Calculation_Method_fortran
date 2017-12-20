@@ -7,44 +7,42 @@
       subroutine sub_romberg_m(f_any,a,b,m,s)
           implicit none
           integer             ::k,m,i,n   ! n 数组维度          
-          real                ::a,b,e,s,x,sum_newdot
+          real(kind=8)        ::a,b,e,s,r,x,sum_newdot
           real,external       ::f_any
           real,allocatable    ::t(:,:),tbk(:,:)
 
-
-          n=2                           ! 直接从外推2开始
-          do
-          allocate(t(n,n))
-          if (n<=2) then
+          n=1
+          r=0.5*(b-a)*(f_any(a)+f_any(b)) ! r 用作初始值
+          do 
+              allocate(tbk(n,n),t(n+1,n+1))
+              if(size(tbk)<2)then
+                  tbk(1,1)=r
+              else
               t=0
-              t(1,1)=(f_any(a)+f_any(b))*(b-a)/2
-          else
-              t=tbk                     !从备份数据读取
-              do i=1,2**(n-2)
+              t(1:n,1:n)=tbk(1:n,1:n) 
+              ! 扩维数组并引入老数组
+              end if
+              x=1.0*(b-a)/(2.0**n)          ! x 此时作为步长
               sum_newdot=0
-              x=a+(2*i-1)*(b-a)/2**(n-1)
-              sum_newdot=sum_newdot+f_any(x)
+              do i=1,2**(n-1) 
+                  sum_newdot=sum_newdot+1.0*f_any(a+(2.0*i-1)*x)
+              end do 
+              t(n+1,1)=0.5*t(n,1)+1.0*x*sum_newdot
+              print*,'n',n,'t(n,1)',t(n,1)
+              do i=2,n+1
+                  t(n+1,i)=(t(n+1,i-1)*4.0**(i-1)-t(n,i-1))/&
+                          &(4.0**(i-1)-1)
+                  print*,'n,i',n,i,'t(n,i)',t(n,i)
               end do
-              t(n,1)=0.5*t(n-1,1)+sum_newdot*(b-a)/2**(n-1)      !从左下角开始,从1开始数组
-              do i=1,n                      
-              k=n-i
-              m=1+i
-              t(k,m)=(4**(m-1)*t(k,m-2)-t(k-1,m-2))/(4**(m-1)-1)
-              end do
-          end if
-          print*,k,m
-          x=abs(t(k,m)-t(k,m-1))
-          if (x<e)exit
-          n=n+1                         !误差不符合，继续加速
-          allocate(tbk(n,n))
-          tbk=0
-          do k=1,n-1
-              do m=1,n-1
-              tbk(k,m)=t(k,m)
-              end do
+              x=abs(t(n+1,n+1)-t(n,n))    ! x 此时作误差
+              s=t(n+1,n+1)
+              deallocate(t,tbk)
+             
+              if(i>m)exit
+              n=n+1
           end do
-          end do
-          s=t(n,n)
+          print*,'得数',s,'外推',m,'n',n,'误差',x
+
           end subroutine
 
 

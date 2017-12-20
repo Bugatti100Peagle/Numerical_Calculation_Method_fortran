@@ -7,7 +7,7 @@
       program pro_Romberg
           implicit none
           integer             ::k,m     ! k 分半次数，m 外推次数
-          real                ::a,b,e,s ! a,b 积分区间, e 误差上限, s 最终得数
+          real(kind=8)        ::a,b,e,s ! a,b 积分区间, e 误差上限, s 最终得数
           real                ::star_time,end_time
           real,external       ::f_any     ! 要积分的函数
           
@@ -22,7 +22,7 @@
           else
               print*,'请输入误差上限 e'
               read*,e
-              call sub_romberg_e(f_any,a,b,e,s)
+          !    call sub_romberg_e(f_any,a,b,e,s)
           end if
 
 
