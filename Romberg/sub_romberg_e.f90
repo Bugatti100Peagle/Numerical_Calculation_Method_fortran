@@ -23,7 +23,7 @@
               ! 扩维数组并引入老数组
               end if
               x=1.0*(b-a)/(2.0**n)          ! x 此时作为步长
-              sum_newdot=0
+              sum_newdot=0.0
               do i=1,2**(n-1) 
                   sum_newdot=sum_newdot+1.0*f_any(a+(2.0*i-1)*x)
               end do 
