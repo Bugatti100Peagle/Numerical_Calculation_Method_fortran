@@ -5,7 +5,7 @@
 
 ## 编程方法
 将系数阵与结果阵存为一个数组，增广阵，然后控制算子计算
-![enter image](://github.com/Bugatti100Peagle/Numerical_Calculation_Method_fortran/blob/master/pictures/Gaussi1.png)
+![enter image](https://github.com/Bugatti100Peagle/Numerical_Calculation_Method_fortran/blob/master/pictures/Gaussi1.png)
 
 ## Bugs and problem
 - 没有选主元
