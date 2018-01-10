@@ -9,6 +9,8 @@ Some codes for Computational Method, welcome to discuss.
 ## Linear algebra 线性代数
 - [高斯消去法](https://github.com/Bugatti100Peagle/Numerical_Calculation_Method_fortran/blob/master/Gaussian_elimination/Introduce_of_Gaussi.md)
 
+- [SOR松弛法](https://github.com/Bugatti100Peagle/Numerical_Calculation_Method_fortran/blob/master/SOR/Introduce_to_SOR.md)
+
 ---
 ## Numerical integration 数值积分
 - [龙贝格求积](https://github.com/Bugatti100Peagle/Numerical_Calculation_Method_fortran/blob/master/Romberg/Introduce_of_Romberg.md)
