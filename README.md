@@ -17,7 +17,7 @@ Some codes for Computational Method, welcome to discuss.
 
 ---
 ## Different equations 微分方程
-
+- [差分](https://github.com/Bugatti100Peagle/Numerical_Calculation_Method_fortran/blob/master/Different/Introduce_of_Differece.md)
 ---
 ## 总体改进方法 （假期待补充）
 - 数学证明单独贴，连接至编程贴
