@@ -8,7 +8,11 @@
 ## 编程思路
 看好对应关系，编写除法即可
 
-![enter image](https://github.com/Bugatti100Peagle/Numerical_Calculation_Method_fortran/blob/master/pictures/Difference.png)
+---
+
+![enter image](https://github.com/Bugatti100Peagle/Numerical_Calculation_Method_fortran/blob/master/pictures/Difference_results.png)
+
+---
 ## Bugs and problems
 - 前插，后插所得散度场有空点，不知是数据问题还是算法问题
 
